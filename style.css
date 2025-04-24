@@ -78,9 +78,15 @@ section:nth-child(even) {
 section:nth-child(odd) {
   background-color: #edf1f6;
 }
-a {
+i,a {
   text-decoration: none;
   position: relative;
+  transition: opacity 0.3s ease;
+
+}
+
+i:hover {
+  opacity: 0.7
 }
 /* NAVIGATION BAR */
 nav {
@@ -158,6 +164,33 @@ nav {
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
   margin: 48px 0 28px 0;
+  animation: animate-profile-picture 0.8s .2s backwards;
+}
+
+@keyframes animate-profile-picture{
+    0% {transform: scale(0);
+    }
+    80% {transform: scale(1.1);
+    }
+    100% {transform: scale(1);
+    }
+}
+
+.wave{
+    display: inline-block;
+    animation: animate-wave 500ms infinite ease-in-out
+}
+
+@keyframes animate-wave{
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
 }
 .about-me__picture {
   width: 100%;
@@ -165,18 +198,30 @@ nav {
 .about-me__info--para {
   font-size: 20px;
   margin-bottom: 16px;
+  animation: fade-up 650ms 550ms backwards;
 }
 .about-me__info--title {
   margin-bottom: 16px;
+  animation: fade-up 650ms 350ms backwards;
 }
 .about-me__link {
   font-size: 20px;
   color: #081f5c;
-  text-decoration: none;
   padding: 0 12px;
 }
+
+@keyframes fade-up{
+    0% {opacity: 0;
+    transform: translateY(40px);}
+    100% {opacity: 1;
+    transform: translateY(0);}
+}
+
+
 .about-me__links {
   margin-bottom: 28px;
+  animation: fade-up 650ms 750ms backwards;
+
 }
 .about-me__image--container {
   flex: 1;
@@ -185,6 +230,12 @@ nav {
 }
 .about-me__image {
   width: 100%;
+  animation: fade-in 1.2s 800ms backwards;
+}
+
+@keyframes fade-in{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 /* TECH STACK  */
@@ -298,7 +349,7 @@ nav {
   margin-right: 16px;
 }
 
-.project__description .project__description--title,
+.project__description--title,
 .project__description--sub-title,
 .project__description--para,
 .project__description--link {
